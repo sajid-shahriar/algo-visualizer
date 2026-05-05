@@ -1,11 +1,11 @@
-import "../../App.css";
-import type { HeaderProps } from "../../model/HeaderProps";
-import { DropDown } from "../reusables/DropDown";
+import "../App.css";
+import type { HeaderProps } from "../model/HeaderProps";
+import { DropDown } from "./reusables/DropDown";
 
 
 export function Header(props : HeaderProps) {
   
-  const {algorithmList, onAlgorithmSelect, playbackSpeed, onPlayBackSpeedSelect} = props
+  const {algorithmList, selectedAlgorithm, onAlgorithmSelect, playbackSpeed, onPlayBackSpeedSelect, selectedPlayBackSpeed, onVisualize, isVisualizing} = props
 
   return (
     <div id="header">
@@ -16,17 +16,17 @@ export function Header(props : HeaderProps) {
           <DropDown 
             dropDownData={algorithmList} 
             onDataSelect={onAlgorithmSelect} 
-            defaultText="Select Algorithm"
+            defaultText= {selectedAlgorithm ? selectedAlgorithm.name : `Select Algorithm`}
           />
         </div>
         <div className="menu-item">
-          <button>Visualize</button>
+          <button onClick={onVisualize}>{isVisualizing ? 'Pause' : 'Play'}</button>
         </div>
         <div className="menu-item">
           <DropDown 
             dropDownData={playbackSpeed} 
             onDataSelect={onPlayBackSpeedSelect} 
-            defaultText="Speed"
+            defaultText={selectedPlayBackSpeed ? selectedPlayBackSpeed.name : `Speed`}
           />
         </div>
       </div>

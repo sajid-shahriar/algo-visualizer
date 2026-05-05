@@ -1,5 +1,5 @@
 import './App.css'
-import { AlgoVisualizer } from './components/algo-visualizer/AlgoVisualizer';
+import { AlgoVisualizer } from './components/AlgoVisualizer';
 
 
 function App() {

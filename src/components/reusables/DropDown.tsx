@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import type { DropDownProps } from "../../model/DropDownProps";
 import type { DropDownData } from "../../model/DropDownData";
+import "../../App.css"
 
 export function DropDown(props: DropDownProps) {
     const { dropDownData, onDataSelect, defaultText } = props;
