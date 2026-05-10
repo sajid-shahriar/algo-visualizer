@@ -79,3 +79,13 @@ algo-visualizer/
 - **TypeScript** - For type safety and better DX
 - **Vite** - Build tool and dev server
 - **Vanilla CSS** - Styling
+
+## Acknowledgments
+
+This website by University of San Fransisco has been a major inspiration behind the visualization. You can check them out at: [Data Structure Visualization](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+The pathfinding algorithm visualizations were inspired by the work of [Clément Mihailescu](https://www.clementmihailescu.com/).
+
+The path finding website: [Pathfinding Visualizer](https://clementmihailescu.github.io/Pathfinding-Visualizer/)
+
+
