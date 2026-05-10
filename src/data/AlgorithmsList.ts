@@ -12,9 +12,17 @@ export const algorithmList : DropDownData[] = [
     {
         value: "insertionSort",
         name: "Insertion Sort"
+    },
+    {
+        value: "bfs",
+        name: "BFS"
+    },
+    {
+        value: "dfs",
+        name: "DFS"
+    },
+    {
+        value: "dijkstra",
+        name: "Dijkstra"
     }
-
 ];
-
-
-

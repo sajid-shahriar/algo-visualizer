@@ -102,7 +102,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 400px;
+  min-height: 400px;
   padding: 20px;
   background-color: #f5f6fa;
   margin-top: 20px;
@@ -125,4 +125,98 @@
 
 .bar-sorted {
   background-color: #2ecc71 !important;
+}
+
+/* Pathfinding Styles */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  overflow: auto;
+  align-self: center;
+}
+
+.grid {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #dcdde1;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.node {
+  width: 25px;
+  height: 25px;
+  outline: 1px solid #dcdde1;
+  display: inline-block;
+}
+
+.node-start {
+  background-color: #2ecc71 !important;
+}
+
+.node-finish {
+  background-color: #e74c3c !important;
+}
+
+.node-wall {
+  background-color: #2c3e50 !important;
+}
+
+.node-visited {
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
+}
+
+.node-path {
+  animation-name: shortestPath;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.6);
+    background-color: rgb(255, 254, 106);
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: rgb(255, 254, 106);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgb(255, 254, 106);
+  }
 }

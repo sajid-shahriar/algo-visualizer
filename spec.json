@@ -1,0 +1,58 @@
+  Implementation Plan - Pathfinding Algorithms (BFS, DFS, Dijkstra)
+
+  Add grid-based visualization for pathfinding algorithms (BFS, DFS, Dijkstra) with interactive wall placement.
+
+  Proposed Changes
+
+  0. Project Documentation & Configuration
+   - Update GEMINI.md with project-specific code conventions:
+     - Strict TypeScript usage.
+     - Functional components and hooks.
+     - Interface-based data modeling.
+     - Separation of concerns (logic vs. UI).
+   - Update spec.json with detailed requirements for pathfinding algorithms:
+     - Grid size (e.g., 20x50).
+     - Interactive wall toggle.
+     - Visualization of BFS, DFS, and Dijkstra.
+     - Shortest path highlighting (where applicable).
+     - Speed control and reset functionality.
+
+  1. Models
+   - Create src/model/Node.ts to represent a cell in the grid.
+     - Properties: row, col, isStart, isFinish, isWall, isVisited, isPath, distance, previousNode.
+
+  2. Components
+   - Create src/components/Node.tsx for individual cell rendering.
+   - Create src/components/PathfindingVisualizer.tsx to:
+     - Manage a 2D grid of nodes.
+     - Handle wall placement via mouse interaction.
+     - Implement BFS, DFS, and Dijkstra's algorithms.
+     - Animate the search process and final path.
+     - Provide a way to reset the grid.
+
+  3. Integration
+   - Update src/data/AlgorithmsList.ts to include:
+     - BFS
+     - DFS
+     - Dijkstra
+   - Update src/components/AlgoVisualizer.tsx to:
+     - Conditionally render PathfindingVisualizer when a pathfinding algorithm is selected.
+     - Pass necessary props like speed and isVisualizing.
+
+  4. Styling
+   - Update src/App.css:
+     - Add .grid (using CSS grid).
+     - Add .node and its state-specific classes (.node-start, .node-finish, .node-wall, .node-visited, .node-path).
+     - Add animations for .node-visited and .node-path.
+
+  Verification & Testing
+   - Manual Testing:
+     - Select BFS, DFS, and Dijkstra from the dropdown.
+     - Verify that a grid appears.
+     - Click and drag to create walls.
+     - Click "Visualize" and verify the search animation.
+     - Verify the shortest path (for Dijkstra and BFS) is highlighted after the search.
+     - Verify that walls are respected by the algorithms.
+     - Test different playback speeds.
+   - Unit Testing:
+     - Add basic tests for algorithm logic if possible (e.g., Dijkstra finding the shortest path on a small grid).

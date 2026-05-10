@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface BubbleSortProps {
   speed: string;
@@ -6,7 +6,7 @@ interface BubbleSortProps {
   onFinished: () => void;
 }
 
-const generateRandomArray = () => Array.from({ length: 20 }, () => Math.floor(Math.random() * 300) + 50);
+const generateRandomArray = () => Array.from({ length: 50 }, () => Math.floor(Math.random() * 300) + 50);
 
 export function BubbleSortVisualization({ speed, isVisualizing, onFinished }: BubbleSortProps) {
   const [array, setArray] = useState<number[]>(generateRandomArray);

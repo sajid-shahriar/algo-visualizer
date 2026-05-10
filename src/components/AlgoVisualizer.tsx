@@ -7,6 +7,7 @@ import '../App.css';
 import { BubbleSortVisualization } from "./BubbleSort";
 import { SelectionSortVisualization } from "./SelectionSort";
 import { InsertionSortVisualization } from "./InsertionSort";
+import { PathfindingVisualizer } from "./PathfindingVisualizer";
 
 export function AlgoVisualizer(){
     const [selectedAlgorithm, setSelectedAlgorithm] = useState<DropDownData>(algorithmList[0]);
@@ -24,6 +25,10 @@ export function AlgoVisualizer(){
 
     const handleFinished = () => {
         setIsVisualizing(false);
+    };
+
+    const isPathfindingAlgorithm = (value: string) => {
+        return ['bfs', 'dfs', 'dijkstra'].includes(value);
     };
 
     return(
@@ -66,6 +71,14 @@ export function AlgoVisualizer(){
                     speed={selectedPlaybackSpeed.value} 
                     isVisualizing={isVisualizing} 
                     onFinished={handleFinished}
+                />
+            )}
+            {isPathfindingAlgorithm(selectedAlgorithm.value) && (
+                <PathfindingVisualizer 
+                    speed={selectedPlaybackSpeed.value} 
+                    isVisualizing={isVisualizing} 
+                    onFinished={handleFinished}
+                    algorithm={selectedAlgorithm.value}
                 />
             )}
         </div>
